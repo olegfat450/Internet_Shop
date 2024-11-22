@@ -23,7 +23,7 @@ val phones = Catalog().phones
          class shopKrn (): Shop() {
 
              fun salePhone(position: Int){
-                 println("Продан телефон: ${phones[position]}") ; amountKrn[position]--; saleKrn[position]++; volume++;sum += priceKrn[position] }
+                 if (amountKrn[position] > 0) { println("Продан телефон: ${phones[position]}") ; amountKrn[position]--; saleKrn[position]++; volume++;sum += priceKrn[position] } else { println("Нет в наличии");return}}
 
              override fun info() {
                  println("Магазин г.Красноярск")
@@ -33,7 +33,7 @@ val phones = Catalog().phones
                  for (i in 0..phones.size - 1) {
                      println(" ${i+1} Модель: ${phones[i]}  |  Цена: ${priceKrn[i]}  |  Количество: ${amountKrn[i]}  |  Продано: ${saleKrn[i]}") } }
 
-             fun repair() { if (Random.nextInt(0,5) == 3) { println("Отремонтировать телефон?\n 1. Да\n 2. Нет\n _______")
+             fun repair() { if (Random.nextInt(0,5) == 3) { print("Отремонтировать телефон?\n 1. Да\n 2. Нет\n _______:")
                              when (readln()) {
                                  "1" -> println("Телефон отремонтирован")
                                  else -> return
@@ -54,7 +54,7 @@ val phones = Catalog().phones
                      println(" ${i+1} Модель: ${phones[i]}  |  Цена: ${priceNvs[i]}  |  Количество: ${amountNvs[i]}  |  Продано: ${saleNvs[i]}") } }
 
              fun salePhone(position: Int){
-                 println("Продан телефон: ${phones[position]}") ; amountNvs[position]--; saleNvs[position]++;volume++; sum += priceNvs[position] }
+                 if (amountNvs[position] > 0) { println("Продан телефон: ${phones[position]}") ; amountNvs[position]--; saleNvs[position]++;volume++; sum += priceNvs[position] } else {println("Нет в наличии");return}}
 
 
          }
