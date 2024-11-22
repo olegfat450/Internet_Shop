@@ -4,7 +4,7 @@
 
        fun main() {
 
-
+            var s = 0
          var flag: Int
 
            loop@do { Shop().info()
@@ -14,11 +14,11 @@
                  "3" -> { Shop().statistic(); continue@loop}
                  else -> return }
 
-               print("Выберете телефон: "); val s = readln().toInt()
+             do { print("Выберете телефон: "); try { s = readln().toInt() } catch (_:Exception) { s = 0 } } while ( s > (Catalog().priceKrn.size) || (s <= 0))
 
                 when (flag) {
-                    1 -> shopKrn().salePhoneKrn(s-1)
-                    2 -> shopNvs().salePhoneNvs(s-1) }
+                    1 -> shopKrn().salePhone(s-1)
+                    2 -> shopNvs().salePhone(s-1) }
             } while (true)
 
 
