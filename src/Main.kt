@@ -5,12 +5,13 @@
        fun main() {
 
 
-         var flag = 0
+         var flag: Int
 
-            do { Shop().info()
+           loop@do { Shop().info()
              when( readLine().toString()) {
                  "1" -> { shopKrn().info(); shopKrn().catalog(); flag = 1 }
                  "2" -> { shopNvs().info(); shopNvs().catalog(); flag = 2 }
+                 "3" -> { Shop().statistic(); continue@loop}
                  else -> return }
 
                print("Выберете телефон: "); val s = readln().toInt()

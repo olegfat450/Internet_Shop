@@ -6,11 +6,15 @@
   val amountNvs = Catalog().amountNvs.toMutableList()
   val saleNvs = Array(phones.size, {0})
   val priceNvs = Catalog().priceNvs
+           var volume = 0
+           var sum = 0
 
-  
  open class Shop() {
 
-    open fun info() = print("Вас приветствует интернет - магазин\n Выберете город:\n 1. Красноярск\n 2. Новосибирск\n 0. Выход\n _________: ")
+    open fun info() = print("Вас приветствует интернет - магазин\n Выберете город:\n 1. Красноярск\n 2. Новосибирск\n 3. Общая статистика\n 0. Выход\n _________: ")
+
+     open fun statistic() = if (sum != 0) println("\nВсего продано телефонов: ${volume}  на общую сумму: ${sum}") else println("\nПока ничего не продано\n")
+
  }
 
 
@@ -18,7 +22,7 @@
          class shopKrn (): Shop() {
 
              fun salePhoneKrn(position: Int){
-                 println("Продан телефон: ${phones[position]}") ; amountKrn[position]--; saleKrn[position]++ }
+                 println("Продан телефон: ${phones[position]}") ; amountKrn[position]--; saleKrn[position]++; volume++;sum += priceKrn[position] }
 
 
 
@@ -47,7 +51,7 @@
                      println(" ${i+1} Модель: ${phones[i]}  |  Цена: ${priceNvs[i]}  |  Количество: ${amountNvs[i]}  |  Продано: ${saleNvs[i]}") } }
 
              fun salePhoneNvs(position: Int){
-                 println("Продан телефон: ${phones[position]}") ; amountNvs[position]--; saleNvs[position]++ }
+                 println("Продан телефон: ${phones[position]}") ; amountNvs[position]--; saleNvs[position]++;volume++; sum += priceNvs[position] }
 
 
          }
