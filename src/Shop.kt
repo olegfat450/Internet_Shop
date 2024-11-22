@@ -1,5 +1,6 @@
+import kotlin.random.Random
 
-  val phones = Catalog().phones
+val phones = Catalog().phones
   val priceKrn = Catalog().priceKrn
   val amountKrn = Catalog().amountKrn.toMutableList()
   val saleKrn = Array(phones.size, {0})
@@ -31,6 +32,14 @@
               fun catalog() {
                  for (i in 0..phones.size - 1) {
                      println(" ${i+1} Модель: ${phones[i]}  |  Цена: ${priceKrn[i]}  |  Количество: ${amountKrn[i]}  |  Продано: ${saleKrn[i]}") } }
+
+             fun repair() { if (Random.nextInt(0,5) == 3) { println("Отремонтировать телефон?\n 1. Да\n 2. Нет\n _______")
+                             when (readln()) {
+                                 "1" -> println("Телефон отремонтирован")
+                                 else -> return
+                             }
+             }
+             }
          }
 
 
